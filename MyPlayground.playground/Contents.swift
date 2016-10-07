@@ -41,7 +41,7 @@ print(dieRolls)
 
 roll(numberOfDice: 3, times: 6, withBonus: 0)
 
-func add(_ numbers: UInt...) -> UInt {
+func add2(_ numbers: UInt...) -> UInt {
     var total: UInt = 0
     for num in numbers {
         total += num
@@ -49,9 +49,81 @@ func add(_ numbers: UInt...) -> UInt {
     return total
 }
 
-add(1)
-add(1, 2, 3, 4)
-add()
+add2(1)
+add2(1, 2, 3, 4)
+add2()
+
+let addFunc = add2
+addFunc(1, 2, 3, 4)
+
+
+func add(left: Int, right: Int) -> Int {
+    return left + right
+}
+
+func math(left: Int, right: Int, op: (Int, Int) -> Int) -> Int {
+    return op(left, right)
+}
+math(left: 2, right: 2, op: add)
+
+let multiply = { (left: Int, right: Int) -> Int in
+    return left * right
+}
+
+math(left: 10, right: 2, op: { (left, right) in return left / right })
+
+
+func doSomething(with: inout Int) {
+    with += 22
+    print(with)
+}
+
+func doSomethingElse(with: Int) {
+    var with = with
+    with *= 2
+    print(with)
+}
+var x = 5
+doSomething(with: &x)
+print(x)
+
+var shoppingList: [String] = ["catfish", "water", "tulips", "blue paint"]
+shoppingList.append("soda")
+print(shoppingList)
+
+shoppingList[1] =  "h2o"
+print(shoppingList)
+
+var short = shoppingList.filter() {
+    $0.lengthOfBytes(using: String.Encoding.ascii) > 4
+}
+
+print(short)
+
+for name in shoppingList {
+    print(name)
+}
+
+var shoppingList2 =
+    [0: "catfish", 1: "water", 2: "tulips", 3: "blue paint"]
+
+//OPTIONAL TYPES
+/*
+ Optionals are either a value or nil
+ 
+ ? asking if it could be nil
+ ! you know it is not nil
+ 
+ */
+
+
+
+
+
+
+
+
+
 
 
 
